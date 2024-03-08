@@ -1,4 +1,5 @@
 ⚙️ Funcionalidades
+
 ✔️ Tela splash screen.
 
 ✔️ Tela de Login, com validação de e-mail e senha.
