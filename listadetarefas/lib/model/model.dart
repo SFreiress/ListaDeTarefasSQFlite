@@ -74,13 +74,11 @@ class DatabaseProvider {
         where: "$idTarefa = ?", whereArgs: [tarefa.id]);
   }
 
-  Future<List> listarTarefas() async {
+  Future<List<Tarefa>> listarTarefas() async {
     Database? dbTarefas = await db;
-    List listMap = await dbTarefas.rawQuery("SELECT * FROM $tarefas");
-    List<Tarefa> listarTarefa = [];
-    for (Map m in listMap) {
-      listarTarefa.add(Tarefa.fromMap(m));
-    }
+    List<dynamic> listMap = await dbTarefas.rawQuery("SELECT * FROM $tarefas");
+    List<Tarefa> listarTarefa =
+        listMap.map((item) => Tarefa.fromMap(item)).toList();
     return listarTarefa;
   }
 

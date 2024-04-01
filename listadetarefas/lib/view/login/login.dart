@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:listadetrefas/view/login/registro.dart';
 import 'package:listadetrefas/model/model.dart';
+import 'package:listadetrefas/view/tarefas.dart';
 import 'package:sqflite/sqflite.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -34,6 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
             content: Text('Login bem-sucedido!'),
           ));
           // Redirecione para a tela desejada após o login
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    TarefaListScreen()), // Chame TarefaListScreen() aqui
+          );
           return;
         } else {
           // Senha incorreta
